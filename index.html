@@ -3,764 +3,959 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oh Perni Premiações</title>
-  <meta name="description" content="Campanhas, regulamentos, resultados e participação nas premiações do Oh Perni Premiações." />
+  <title>Oh Perni Premiações | Ação Oficial</title>
+  <meta
+    name="description"
+    content="Participe das ações da Oh Perni Premiações com compra automática pela Rifa Digital. Site oficial com campanha, regulamento, resultado e contato."
+  />
+  <meta name="theme-color" content="#0b0b0b" />
+
   <style>
-    :root {
-      --bg: #0b0b0b;
-      --bg-soft: #141414;
-      --card: #191919;
-      --gold: #d4af37;
-      --gold-2: #f0d77a;
-      --text: #f5f5f5;
-      --muted: #bdbdbd;
-      --line: rgba(212, 175, 55, 0.18);
-      --success: #1fbf75;
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
-      --radius: 18px;
-      --max: 1180px;
+    :root{
+      --bg:#080808;
+      --bg-soft:#111111;
+      --card:#151515;
+      --card-2:#1b1b1b;
+      --gold:#d9b45a;
+      --gold-2:#f2d48a;
+      --text:#f7f2e8;
+      --muted:#b9b2a6;
+      --line:#2f2a22;
+      --green:#1db954;
+      --red:#7f1010;
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1180px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:
+        radial-gradient(circle at top right, rgba(217,180,90,.08), transparent 28%),
+        radial-gradient(circle at left top, rgba(180,20,20,.09), transparent 30%),
+        var(--bg);
+      color:var(--text);
       font-family: Arial, Helvetica, sans-serif;
+      line-height:1.5;
     }
 
-    html {
-      scroll-behavior: smooth;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    body {
-      background: linear-gradient(180deg, #080808 0%, #101010 100%);
-      color: var(--text);
-      line-height: 1.5;
+    img{
+      max-width:100%;
+      display:block;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .container{
+      width:min(100%, var(--max));
+      margin:0 auto;
+      padding:0 18px;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    header{
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:rgba(8,8,8,.88);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
 
-    .container {
-      width: 92%;
-      max-width: var(--max);
-      margin: 0 auto;
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      min-height:80px;
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(8, 8, 8, 0.92);
-      border-bottom: 1px solid var(--line);
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:-0.8px;
+      font-size:26px;
+      position:relative;
     }
-
-    .topbar-inner {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--gold-2);
-      letter-spacing: 0.4px;
-    }
-
-    .brand-sub {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .nav {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .nav a:hover {
-      color: var(--gold-2);
+
+    .logo-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,#7c1111,#d11d1d);
+      box-shadow:0 10px 24px rgba(209,29,29,.28);
+      color:#fff;
+      font-size:25px;
+      flex-shrink:0;
+    }
+
+    .logo-text{
+      line-height:1;
+    }
+
+    .logo-text small{
+      display:block;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:5px;
+      color:var(--gold);
+      margin-top:6px;
+    }
+
+    .perni-i{
+      position:relative;
+      display:inline-block;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
+    .perni-i::after{
+      content:"👑";
+      position:absolute;
+      top:-18px;
+      left:50%;
+      transform:translateX(-50%);
+      font-size:14px;
+      line-height:1;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
     }
+
+    nav a{
+      color:#ddd;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      color:#120f09;
+      font-weight:900;
+      box-shadow:var(--shadow);
+    }
+
+    .hero{
+      padding:52px 0 28px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .hero-left{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:32px;
+      padding:34px;
+      background:
+        radial-gradient(circle at 85% 0%, rgba(217,180,90,.16), transparent 28%),
+        radial-gradient(circle at 0% 100%, rgba(180,0,0,.15), transparent 30%),
+        linear-gradient(145deg,#121212,#090909 55%);
+      box-shadow:var(--shadow);
+    }
+
+    .watermark{
+      position:absolute;
+      right:12px;
+      bottom:0;
+      font-size:180px;
+      opacity:.04;
+      pointer-events:none;
+      line-height:1;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:rgba(217,180,90,.10);
+      color:var(--gold-2);
+      border:1px solid rgba(217,180,90,.25);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.3px;
+      margin-bottom:18px;
+    }
+
+    .hero-left h1{
+      font-size:clamp(36px, 6vw, 72px);
+      line-height:1.02;
+      letter-spacing:-2px;
+      margin-bottom:16px;
+      max-width:740px;
+    }
+
+    .hero-left h1 span{
+      color:var(--gold);
+    }
+
+    .hero-left p{
+      color:var(--muted);
+      font-size:18px;
+      max-width:650px;
+      margin-bottom:24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:20px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:0 24px;
+      border-radius:14px;
+      font-weight:900;
+      font-size:15px;
+      transition:.2s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      color:#14100a;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,.12);
+      color:#f0ece2;
+      background:rgba(255,255,255,.03);
+    }
+
+    .hero-info{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .hero-info .tag{
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+      color:#ddd1bd;
+      font-weight:700;
+    }
+
+    .hero-right{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .campaign-card{
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.12), transparent 18%),
+        linear-gradient(135deg,#320909 0%, #6f1111 34%, #290606 100%);
+      box-shadow:var(--shadow);
+      padding:26px;
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .campaign-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .campaign-badge{
+      display:inline-block;
+      font-size:12px;
+      font-weight:900;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      margin-bottom:14px;
+    }
+
+    .campaign-card h2{
+      font-size:clamp(26px,4vw,46px);
+      line-height:1.05;
+      letter-spacing:-1.5px;
+      margin-bottom:10px;
+      text-transform:uppercase;
+    }
+
+    .campaign-card h2 span{
+      color:var(--gold-2);
+    }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: #111;
-      box-shadow: var(--shadow);
+    .campaign-sub{
+      color:#f1e8d7;
+      font-size:15px;
+      margin-bottom:18px;
+      max-width:500px;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.03);
+    .price-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin:18px 0 18px;
     }
 
-    .btn-outline {
-      border-color: rgba(255,255,255,0.15);
-      color: var(--text);
-      background: transparent;
+    .mini-box{
+      flex:1 1 180px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
     }
 
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold-2);
+    .mini-box small{
+      display:block;
+      color:#e8d9bf;
+      opacity:.85;
+      font-size:12px;
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.5px;
     }
 
-    .hero {
-      padding: 72px 0 34px;
+    .mini-box strong{
+      font-size:18px;
     }
 
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 30px;
-      align-items: center;
+    .campaign-buy{
+      display:block;
+      width:100%;
+      text-align:center;
+      padding:18px 20px;
+      border-radius:18px;
+      background:#1db954;
+      color:#fff;
+      font-size:21px;
+      font-weight:900;
+      margin-top:10px;
+      box-shadow:0 12px 30px rgba(29,185,84,.25);
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(212,175,55,0.08);
-      color: var(--gold-2);
-      font-size: 0.9rem;
-      margin-bottom: 18px;
+    .campaign-note{
+      margin-top:12px;
+      color:#f5e8cb;
+      font-size:13px;
+      opacity:.9;
     }
 
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3.8rem);
-      line-height: 1.05;
-      margin-bottom: 14px;
+    .section{
+      padding:28px 0;
     }
 
-    .hero h1 span {
-      color: var(--gold-2);
+    .section-title{
+      margin-bottom:18px;
     }
 
-    .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 650px;
-      margin-bottom: 24px;
+    .section-title .eyebrow{
+      color:var(--gold);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:8px;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 26px;
+    .section-title h3{
+      font-size:clamp(26px,4vw,42px);
+      letter-spacing:-1px;
+      line-height:1.1;
     }
 
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
     }
 
-    .trust-pill {
-      padding: 10px 14px;
-      background: var(--bg-soft);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 0.92rem;
+    .card{
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
     }
 
-    .hero-card {
-      background: linear-gradient(180deg, rgba(212,175,55,0.12), rgba(255,255,255,0.02));
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 18px;
-      box-shadow: var(--shadow);
+    .card .icon{
+      font-size:24px;
+      margin-bottom:14px;
     }
 
-    .hero-image {
-      background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 22px;
-      min-height: 420px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      overflow: hidden;
+    .card h4{
+      font-size:18px;
+      margin-bottom:8px;
     }
 
-    .hero-image-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 16px;
-      border: 1px dashed rgba(212,175,55,0.35);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 28px;
-      color: var(--muted);
+    .card p{
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .hero-image-inner strong {
-      color: var(--gold-2);
-      font-size: 1.4rem;
-      margin-bottom: 8px;
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
     }
 
-    .section {
-      padding: 38px 0;
+    .list{
+      display:grid;
+      gap:14px;
     }
 
-    .section-title {
-      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-      margin-bottom: 10px;
+    .list-item{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:18px;
+      border-radius:20px;
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      border:1px solid rgba(255,255,255,.07);
     }
 
-    .section-sub {
-      color: var(--muted);
-      max-width: 740px;
-      margin-bottom: 26px;
+    .step{
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      color:#17130b;
+      font-weight:900;
+      flex-shrink:0;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .list-item strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:16px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
+    .list-item p{
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: var(--gold-2);
-      font-size: 1.1rem;
+    .campaign-detail{
+      display:grid;
+      gap:14px;
     }
 
-    .card p {
-      color: var(--muted);
-      font-size: 0.98rem;
+    .detail-box{
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:22px;
+      padding:18px;
     }
 
-    .featured {
-      background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(255,255,255,0.02));
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 22px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      box-shadow: var(--shadow);
+    .detail-box small{
+      display:block;
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:1px;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:8px;
     }
 
-    .featured-image {
-      min-height: 340px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #191919, #0d0d0d);
-      border: 1px solid rgba(255,255,255,0.07);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: var(--muted);
+    .detail-box strong{
+      display:block;
+      font-size:20px;
+      margin-bottom:6px;
     }
 
-    .featured-image strong {
-      display: block;
-      color: var(--gold-2);
-      font-size: 1.3rem;
-      margin-bottom: 8px;
+    .detail-box p{
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .featured-content small {
-      display: inline-block;
-      color: var(--success);
-      font-weight: 700;
-      margin-bottom: 10px;
+    .responsavel{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:24px;
+      align-items:center;
+      background:linear-gradient(180deg,#111111,#0b0b0b);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:28px;
+      padding:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
 
-    .featured-content h3 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .responsavel-img{
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background:#0f0f0f;
     }
 
-    .featured-content p {
-      color: var(--muted);
-      margin-bottom: 18px;
+    .responsavel-content h3{
+      font-size:clamp(28px,4vw,42px);
+      line-height:1.08;
+      letter-spacing:-1px;
+      margin-bottom:12px;
     }
 
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
+    .responsavel-content p{
+      color:var(--muted);
+      margin-bottom:14px;
+      font-size:15px;
     }
 
-    .meta-box {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      padding: 14px;
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:16px;
     }
 
-    .meta-label {
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-bottom: 4px;
+    .contact-item{
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:14px;
     }
 
-    .meta-value {
-      font-size: 1rem;
-      font-weight: 700;
+    .contact-item strong{
+      display:block;
+      margin-bottom:4px;
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.7px;
+      text-transform:uppercase;
     }
 
-    .featured-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+    .final-cta{
+      margin-top:10px;
+      text-align:center;
+      padding:32px 24px;
+      border-radius:28px;
+      background:
+        radial-gradient(circle at top center, rgba(217,180,90,.15), transparent 25%),
+        linear-gradient(145deg,#141414,#0b0b0b);
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
     }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .final-cta h3{
+      font-size:clamp(26px,4vw,42px);
+      line-height:1.08;
+      letter-spacing:-1px;
+      margin-bottom:10px;
     }
 
-    .step-number {
-      width: 44px;
-      height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: rgba(212,175,55,0.14);
-      color: var(--gold-2);
-      font-weight: 800;
-      margin-bottom: 14px;
+    .final-cta p{
+      color:var(--muted);
+      max-width:760px;
+      margin:0 auto 20px;
     }
 
-    .results-box {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: var(--shadow);
+    footer{
+      padding:34px 0 46px;
+      color:#a79f92;
+      font-size:13px;
     }
 
-    .results-list {
-      display: grid;
-      gap: 14px;
+    .footer-box{
+      border-top:1px solid rgba(255,255,255,.07);
+      padding-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:space-between;
     }
 
-    .result-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .result-item:last-child {
-      border-bottom: none;
-    }
-
-    .result-title {
-      font-weight: 700;
-    }
-
-    .result-meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    @media (max-width: 980px){
+      .hero-grid,
+      .two-col,
+      .responsavel{
+        grid-template-columns:1fr;
+      }
 
-    .contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .contact a {
-      color: var(--gold-2);
-    }
+      .cards{
+        grid-template-columns:repeat(2,1fr);
+      }
 
-    .footer {
-      padding: 40px 0 70px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      margin-top: 20px;
+      nav{
+        display:none;
+      }
     }
 
-    .footer strong {
-      color: var(--gold-2);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-    }
+    @media (max-width: 640px){
+      .hero{
+        padding-top:34px;
+      }
 
-    .float-wa {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 99;
-      background: #25d366;
-      color: white;
-      padding: 15px 18px;
-      border-radius: 999px;
-      font-weight: 800;
-      box-shadow: var(--shadow);
-    }
+      .hero-left,
+      .campaign-card{
+        padding:22px;
+      }
 
-    @media (max-width: 960px) {
-      .hero-wrap,
-      .featured,
-      .contact,
-      .footer-grid,
       .cards,
-      .steps {
-        grid-template-columns: 1fr;
+      .contact-grid{
+        grid-template-columns:1fr;
       }
 
-      .topbar-inner {
-        align-items: flex-start;
-        padding: 14px 0;
-        flex-direction: column;
+      .topbar{
+        min-height:72px;
       }
 
-      .nav {
-        gap: 10px;
+      .logo{
+        font-size:22px;
       }
 
-      .hero {
-        padding-top: 34px;
+      .hero-left p{
+        font-size:16px;
       }
 
-      .hero-image,
-      .featured-image {
-        min-height: 250px;
+      .campaign-buy{
+        font-size:18px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">
-        <div class="brand-name">Oh Perni Premiações</div>
-        <div class="brand-sub">Campanhas • Regulamentos • Resultados</div>
-      </div>
+  <header>
+    <div class="container topbar">
+      <a href="#" class="logo">
+        <span class="logo-mark">👑</span>
+        <span class="logo-text">
+          Oh Pern<span class="perni-i">i</span>
+          <small>PREMIAÇÕES</small>
+        </span>
+      </a>
 
-      <nav class="nav">
+      <nav>
         <a href="#campanha">Campanha</a>
         <a href="#como-funciona">Como funciona</a>
-        <a href="#resultados">Resultados</a>
+        <a href="#responsavel">Responsável</a>
         <a href="#contato">Contato</a>
-        <a class="btn btn-primary" href="https://rifa.digital/s/junior-ink-premiacao-tattoo/GHZ04mkIIG9" target="_blank">Comprar agora</a>
+        <a class="nav-cta" href="https://rifa.digital/SEU-LINK-AQUI" target="_blank">Comprar agora</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <div class="badge">⭐ Plataforma segura • Transparência • Participação rápida</div>
-        <h1>Participe das campanhas do <span>Oh Perni Premiações</span> com mais confiança.</h1>
-        <p>
-          Um site direto, profissional e transparente para apresentar campanhas ativas,
-          regulamentos, resultados e acesso rápido à compra dos seus números.
-        </p>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://rifa.digital/s/junior-ink-premiacao-tattoo/GHZ04mkIIG9" target="_blank">Quero participar agora</a>
-          <a class="btn btn-outline" href="#campanha">Ver campanha ativa</a>
+        <div class="hero-left">
+          <div class="watermark">👑</div>
+          <div class="pill">SITE OFICIAL • COMPRA AUTOMÁTICA PELA RIFA DIGITAL</div>
+
+          <h1>
+            Participe da <span>primeira ação oficial</span> da
+            Oh Perni Premiações.
+          </h1>
+
+          <p>
+            Um site direto, confiável e profissional para divulgar campanhas, regulamentos e resultados,
+            com compra automática e sem precisar chamar manualmente para receber números.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://rifa.digital/SEU-LINK-AQUI" target="_blank">
+              GARANTIR MEUS NÚMEROS
+            </a>
+            <a class="btn btn-secondary" href="#como-funciona">
+              COMO FUNCIONA
+            </a>
+          </div>
+
+          <div class="hero-info">
+            <span class="tag">✔ Compra segura e rápida</span>
+            <span class="tag">✔ Envio automático dos números</span>
+            <span class="tag">✔ Divulgação pelo Instagram @_juniorink</span>
+          </div>
         </div>
 
-        <div class="trust-row">
-          <div class="trust-pill">✅ Compra rápida</div>
-          <div class="trust-pill">✅ Informações claras</div>
-          <div class="trust-pill">✅ Resultado divulgado</div>
-          <div class="trust-pill">✅ Suporte pelo WhatsApp</div>
+        <div class="hero-right">
+          <div class="campaign-card" id="campanha">
+            <div>
+              <div class="campaign-top">
+                <div>
+                  <span class="campaign-badge">AÇÃO EM DESTAQUE</span>
+                  <h2>PRÊMIO DE <span>R$ 1.000</span></h2>
+                </div>
+              </div>
+
+              <p class="campaign-sub">
+                Participe da nossa primeira ação e concorra a <strong>R$ 1.000,00</strong>.
+                Compra e confirmação feitas automaticamente pela Rifa Digital.
+              </p>
+
+              <div class="price-strip">
+                <div class="mini-box">
+                  <small>Premiação</small>
+                  <strong>R$ 1.000,00</strong>
+                </div>
+
+                <div class="mini-box">
+                  <small>Plataforma</small>
+                  <strong>Rifa Digital</strong>
+                </div>
+
+                <div class="mini-box">
+                  <small>Compra</small>
+                  <strong>Automática</strong>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a class="campaign-buy" href="https://rifa.digital/SEU-LINK-AQUI" target="_blank">
+                GARANTIR MEUS NÚMEROS
+              </a>
+              <p class="campaign-note">
+                * Após o pagamento, seus números são liberados automaticamente pela plataforma.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">POR QUE CONFIAR</div>
+          <h3>Uma experiência simples, rápida e profissional.</h3>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">⚡</div>
+            <h4>Compra automática</h4>
+            <p>A pessoa compra direto pela Rifa Digital e não depende de atendimento manual.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🛡️</div>
+            <h4>Mais confiança</h4>
+            <p>Visual profissional com campanha, regras, contatos oficiais e identidade da marca.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">📱</div>
+            <h4>Divulgação fácil</h4>
+            <p>Você divulga pelo Instagram @_juniorink e manda todo mundo direto pro site ou link.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">📢</div>
+            <h4>Resultado claro</h4>
+            <p>Você pode publicar depois os ganhadores e manter tudo organizado em um só lugar.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-card">
-        <div class="hero-image">
-          <div class="hero-image-inner">
-            <strong>Imagem da campanha</strong>
+    <section class="section" id="como-funciona">
+      <div class="container two-col">
+
+        <div>
+          <div class="section-title">
+            <div class="eyebrow">COMO FUNCIONA</div>
+            <h3>Processo simples para quem vai comprar.</h3>
+          </div>
+
+          <div class="list">
+            <div class="list-item">
+              <div class="step">1</div>
+              <div>
+                <strong>Acessa a campanha</strong>
+                <p>O cliente entra no site e clica em “Garantir meus números”.</p>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="step">2</div>
+              <div>
+                <strong>Compra pela Rifa Digital</strong>
+                <p>A compra é feita na plataforma, com registro e confirmação automática.</p>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="step">3</div>
+              <div>
+                <strong>Recebe os números</strong>
+                <p>Após o pagamento, os números são liberados sem você precisar mandar manualmente.</p>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div class="step">4</div>
+              <div>
+                <strong>Acompanha o resultado</strong>
+                <p>Depois você divulga o resultado no site, no Instagram e no WhatsApp.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="campaign-detail">
+          <div class="section-title">
+            <div class="eyebrow">DETALHES DA AÇÃO</div>
+            <h3>Primeira ação em destaque.</h3>
+          </div>
+
+          <div class="detail-box">
+            <small>Campanha</small>
+            <strong>Ação Oficial de R$ 1.000</strong>
+            <p>Prêmio principal em dinheiro, com participação pela plataforma Rifa Digital.</p>
+          </div>
+
+          <div class="detail-box">
+            <small>Regulamento</small>
+            <strong>Transparência para o cliente</strong>
+            <p>Você pode adicionar o link do regulamento e os detalhes oficiais da ação aqui.</p>
+          </div>
+
+          <div class="detail-box">
+            <small>Atendimento</small>
+            <strong>Instagram e WhatsApp</strong>
+            <p>Divulgação oficial em @_juniorink e suporte pelo WhatsApp 11 98622-0490.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="responsavel">
+      <div class="container">
+        <div class="responsavel">
+          <div class="responsavel-img">
+            <img src="junior-premios.jpg" alt="Junior Ink - responsável pela Oh Perni Premiações" />
+          </div>
+
+          <div class="responsavel-content">
+            <div class="section-title">
+              <div class="eyebrow">RESPONSÁVEL</div>
+              <h3>Quem está por trás da Oh Perni Premiações</h3>
+            </div>
+
             <p>
-              Aqui depois podemos colocar uma arte bonita do prêmio,
-              igual banner profissional.
+              A divulgação oficial das ações será feita pelo perfil <strong>@_juniorink</strong>,
+              com informações, campanhas, atualizações e resultados.
             </p>
+
+            <p>
+              A ideia é ter um site profissional, simples e confiável, deixando o processo mais fácil para
+              quem compra e mais organizado para quem divulga.
+            </p>
+
+            <div class="contact-grid" id="contato">
+              <div class="contact-item">
+                <strong>Instagram oficial</strong>
+                @_juniorink
+              </div>
+
+              <div class="contact-item">
+                <strong>WhatsApp</strong>
+                (11) 98622-0490
+              </div>
+
+              <div class="contact-item">
+                <strong>Compra da ação</strong>
+                Automática pela Rifa Digital
+              </div>
+
+              <div class="contact-item">
+                <strong>Publicação de resultado</strong>
+                Site + Instagram + WhatsApp
+              </div>
+            </div>
+
+            <div class="hero-actions" style="margin-top:20px;">
+              <a class="btn btn-primary" href="https://wa.me/5511986220490" target="_blank">
+                FALAR NO WHATSAPP
+              </a>
+              <a class="btn btn-secondary" href="https://instagram.com/_juniorink" target="_blank">
+                ABRIR INSTAGRAM
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="final-cta">
+          <h3>Pronto para participar da ação de <span style="color:var(--gold)">R$ 1.000</span>?</h3>
+          <p>
+            Clique no botão abaixo e vá direto para a compra automática pela Rifa Digital.
+          </p>
+
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="https://rifa.digital/SEU-LINK-AQUI" target="_blank">
+              COMPRAR AGORA
+            </a>
+            <a class="btn btn-secondary" href="https://instagram.com/_juniorink" target="_blank">
+              VER INSTAGRAM
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="section" id="campanha">
-    <div class="container">
-      <h2 class="section-title">Campanha em destaque</h2>
-      <p class="section-sub">
-        Coloque aqui a sua principal campanha ativa. A ideia é que o visitante
-        entre no site e já vá direto para a compra.
-      </p>
-
-      <div class="featured">
-        <div class="featured-image">
-          <div>
-            <strong>Prêmio em destaque</strong>
-            <p>Adicione aqui a imagem oficial da campanha</p>
-          </div>
-        </div>
-
-        <div class="featured-content">
-          <small>Campanha ativa</small>
-          <h3>iPhone 17 Pro Max</h3>
-          <p>
-            Participe da campanha e concorra ao prêmio da vez.
-            Todas as informações principais ficam claras logo aqui:
-            valor, data, regras e botão direto para compra.
-          </p>
-
-          <div class="meta">
-            <div class="meta-box">
-              <div class="meta-label">Valor por número</div>
-              <div class="meta-value">R$ 20,00</div>
-            </div>
-            <div class="meta-box">
-              <div class="meta-label">Quantidade total</div>
-              <div class="meta-value">1.000 números</div>
-            </div>
-            <div class="meta-box">
-              <div class="meta-label">Data do sorteio</div>
-              <div class="meta-value">A definir</div>
-            </div>
-            <div class="meta-box">
-              <div class="meta-label">Status</div>
-              <div class="meta-value">Vendendo agora</div>
-            </div>
-          </div>
-
-          <div class="featured-actions">
-            <a class="btn btn-primary" href="https://rifa.digital/s/junior-ink-premiacao-tattoo/GHZ04mkIIG9" target="_blank">Comprar números</a>
-            <a class="btn btn-outline" href="#regulamento">Ver regulamento</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Por que esse site passa mais confiança?</h2>
-      <p class="section-sub">
-        Quanto mais claro e organizado, mais o cliente sente segurança para clicar e comprar.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Visual profissional</h3>
-          <p>
-            Um layout limpo, bonito e objetivo faz o visitante entender rápido
-            que a página é séria e bem cuidada.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Informações claras</h3>
-          <p>
-            Campanha, valor, data, regulamento e resultado visíveis ajudam muito
-            na confiança antes da compra.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Acesso rápido à compra</h3>
-          <p>
-            O botão principal leva direto para a plataforma da campanha,
-            sem enrolação e sem confundir o cliente.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="como-funciona">
-    <div class="container">
-      <h2 class="section-title">Como funciona</h2>
-      <p class="section-sub">
-        Explique de forma simples para o cliente não ter dúvida nenhuma.
-      </p>
-
-      <div class="steps">
-        <div class="card">
-          <div class="step-number">1</div>
-          <h3>Escolha a campanha</h3>
-          <p>Entre na campanha ativa e veja todas as informações principais antes de participar.</p>
-        </div>
-
-        <div class="card">
-          <div class="step-number">2</div>
-          <h3>Compre seus números</h3>
-          <p>Toque no botão de compra e finalize sua participação pela plataforma oficial da campanha.</p>
-        </div>
-
-        <div class="card">
-          <div class="step-number">3</div>
-          <h3>Acompanhe o resultado</h3>
-          <p>Divulgamos os resultados e mantemos as informações organizadas para mais transparência.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="regulamento">
-    <div class="container">
-      <h2 class="section-title">Regulamento e transparência</h2>
-      <p class="section-sub">
-        Essa parte é muito importante para gerar credibilidade.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Regulamento</h3>
-          <p>
-            Inclua aqui as regras da campanha, condições de participação,
-            formas de pagamento e critérios do sorteio.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Divulgação de resultados</h3>
-          <p>
-            Mantenha uma área com campanhas encerradas e seus respectivos resultados
-            para mostrar histórico e transparência.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Identificação do responsável</h3>
-          <p>
-            Coloque nome, redes sociais, contato e demais dados necessários
-            para o visitante saber com quem está falando.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="resultados">
-    <div class="container">
-      <h2 class="section-title">Resultados</h2>
-      <p class="section-sub">
-        Mesmo que você ainda esteja começando, essa seção já mostra organização.
-      </p>
-
-      <div class="results-box">
-        <div class="results-list">
-          <div class="result-item">
-            <div>
-              <div class="result-title">Campanha atual</div>
-              <div class="result-meta">Em andamento — aguardando encerramento</div>
-            </div>
-            <div class="result-meta">Status: Ativa</div>
-          </div>
-
-          <div class="result-item">
-            <div>
-              <div class="result-title">Próximos resultados</div>
-              <div class="result-meta">Os resultados serão publicados aqui após a finalização da campanha.</div>
-            </div>
-            <div class="result-meta">Transparência</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contato">
-    <div class="container">
-      <h2 class="section-title">Contato</h2>
-      <p class="section-sub">
-        Deixe seus canais bem fáceis de encontrar.
-      </p>
-
-      <div class="contact">
-        <div class="card">
-          <h3>Fale com a gente</h3>
-          <p>WhatsApp: <a href="https://wa.me/5511986220490" target="_blank">(11) 98622-0490</a></p>
-          <p>Instagram: <a href="https://instagram.com/ohpernimano" target="_blank">@ohpernimano</a></p>
-        </div>
-
-        <div class="card">
-          <h3>Importante</h3>
-          <p>
-            Mantenha as informações sempre atualizadas e publique somente campanhas
-            válidas, com regras claras e apresentação transparente.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <p><strong>Oh Perni Premiações</strong></p>
-        <p>Campanhas, regulamentos e resultados em um só lugar.</p>
-      </div>
-      <div>
-        <p>© 2026 Oh Perni Premiações. Todos os direitos reservados.</p>
-        <p>Contato: WhatsApp e Instagram oficiais.</p>
-      </div>
+  <footer>
+    <div class="container footer-box">
+      <div>© <span id="year"></span> Oh Perni Premiações. Todos os direitos reservados.</div>
+      <div>Instagram: @_juniorink • WhatsApp: 11 98622-0490</div>
     </div>
   </footer>
 
-  <a class="float-wa" href="https://wa.me/5511986220490" target="_blank">WhatsApp</a>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
