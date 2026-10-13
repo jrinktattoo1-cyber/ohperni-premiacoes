@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oh Perni Premiações</title>
+  <meta name="description" content="Campanhas, regulamentos, resultados e participação nas premiações do Oh Perni Premiações." />
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --bg-soft: #141414;
+      --card: #191919;
+      --gold: #d4af37;
+      --gold-2: #f0d77a;
+      --text: #f5f5f5;
+      --muted: #bdbdbd;
+      --line: rgba(212, 175, 55, 0.18);
+      --success: #1fbf75;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(180deg, #080808 0%, #101010 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 92%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(8, 8, 8, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--gold-2);
+      letter-spacing: 0.4px;
+    }
+
+    .brand-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav a:hover {
+      color: var(--gold-2);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #111;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,0.15);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-2);
+    }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(212,175,55,0.08);
+      color: var(--gold-2);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-2);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .trust-pill {
+      padding: 10px 14px;
+      background: var(--bg-soft);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(212,175,55,0.12), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image {
+      background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .hero-image-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      border: 1px dashed rgba(212,175,55,0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px;
+      color: var(--muted);
+    }
+
+    .hero-image-inner strong {
+      color: var(--gold-2);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .section {
+      padding: 38px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 740px;
+      margin-bottom: 26px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--gold-2);
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .featured {
+      background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .featured-image {
+      min-height: 340px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #191919, #0d0d0d);
+      border: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+    }
+
+    .featured-image strong {
+      display: block;
+      color: var(--gold-2);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .featured-content small {
+      display: inline-block;
+      color: var(--success);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .featured-content h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .featured-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .meta-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .featured-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(212,175,55,0.14);
+      color: var(--gold-2);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .results-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .results-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .result-item:last-child {
+      border-bottom: none;
+    }
+
+    .result-title {
+      font-weight: 700;
+    }
+
+    .result-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact a {
+      color: var(--gold-2);
+    }
+
+    .footer {
+      padding: 40px 0 70px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+    }
+
+    .footer strong {
+      color: var(--gold-2);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .float-wa {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 99;
+      background: #25d366;
+      color: white;
+      padding: 15px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 960px) {
+      .hero-wrap,
+      .featured,
+      .contact,
+      .footer-grid,
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        padding: 14px 0;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-image,
+      .featured-image {
+        min-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-name">Oh Perni Premiações</div>
+        <div class="brand-sub">Campanhas • Regulamentos • Resultados</div>
+      </div>
+
+      <nav class="nav">
+        <a href="#campanha">Campanha</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#contato">Contato</a>
+        <a class="btn btn-primary" href="https://rifa.digital/s/junior-ink-premiacao-tattoo/GHZ04mkIIG9" target="_blank">Comprar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <div class="badge">⭐ Plataforma segura • Transparência • Participação rápida</div>
+        <h1>Participe das campanhas do <span>Oh Perni Premiações</span> com mais confiança.</h1>
+        <p>
+          Um site direto, profissional e transparente para apresentar campanhas ativas,
+          regulamentos, resultados e acesso rápido à compra dos seus números.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://rifa.digital/s/junior-ink-premiacao-tattoo/GHZ04mkIIG9" target="_blank">Quero participar agora</a>
+          <a class="btn btn-outline" href="#campanha">Ver campanha ativa</a>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-pill">✅ Compra rápida</div>
+          <div class="trust-pill">✅ Informações claras</div>
+          <div class="trust-pill">✅ Resultado divulgado</div>
+          <div class="trust-pill">✅ Suporte pelo WhatsApp</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-image">
+          <div class="hero-image-inner">
+            <strong>Imagem da campanha</strong>
+            <p>
+              Aqui depois podemos colocar uma arte bonita do prêmio,
+              igual banner profissional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="campanha">
+    <div class="container">
+      <h2 class="section-title">Campanha em destaque</h2>
+      <p class="section-sub">
+        Coloque aqui a sua principal campanha ativa. A ideia é que o visitante
+        entre no site e já vá direto para a compra.
+      </p>
+
+      <div class="featured">
+        <div class="featured-image">
+          <div>
+            <strong>Prêmio em destaque</strong>
+            <p>Adicione aqui a imagem oficial da campanha</p>
+          </div>
+        </div>
+
+        <div class="featured-content">
+          <small>Campanha ativa</small>
+          <h3>iPhone 17 Pro Max</h3>
+          <p>
+            Participe da campanha e concorra ao prêmio da vez.
+            Todas as informações principais ficam claras logo aqui:
+            valor, data, regras e botão direto para compra.
+          </p>
+
+          <div class="meta">
+            <div class="meta-box">
+              <div class="meta-label">Valor por número</div>
+              <div class="meta-value">R$ 20,00</div>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Quantidade total</div>
+              <div class="meta-value">1.000 números</div>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Data do sorteio</div>
+              <div class="meta-value">A definir</div>
+            </div>
+            <div class="meta-box">
+              <div class="meta-label">Status</div>
+              <div class="meta-value">Vendendo agora</div>
+            </div>
+          </div>
+
+          <div class="featured-actions">
+            <a class="btn btn-primary" href="https://rifa.digital/s/junior-ink-premiacao-tattoo/GHZ04mkIIG9" target="_blank">Comprar números</a>
+            <a class="btn btn-outline" href="#regulamento">Ver regulamento</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Por que esse site passa mais confiança?</h2>
+      <p class="section-sub">
+        Quanto mais claro e organizado, mais o cliente sente segurança para clicar e comprar.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Visual profissional</h3>
+          <p>
+            Um layout limpo, bonito e objetivo faz o visitante entender rápido
+            que a página é séria e bem cuidada.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Informações claras</h3>
+          <p>
+            Campanha, valor, data, regulamento e resultado visíveis ajudam muito
+            na confiança antes da compra.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Acesso rápido à compra</h3>
+          <p>
+            O botão principal leva direto para a plataforma da campanha,
+            sem enrolação e sem confundir o cliente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <h2 class="section-title">Como funciona</h2>
+      <p class="section-sub">
+        Explique de forma simples para o cliente não ter dúvida nenhuma.
+      </p>
+
+      <div class="steps">
+        <div class="card">
+          <div class="step-number">1</div>
+          <h3>Escolha a campanha</h3>
+          <p>Entre na campanha ativa e veja todas as informações principais antes de participar.</p>
+        </div>
+
+        <div class="card">
+          <div class="step-number">2</div>
+          <h3>Compre seus números</h3>
+          <p>Toque no botão de compra e finalize sua participação pela plataforma oficial da campanha.</p>
+        </div>
+
+        <div class="card">
+          <div class="step-number">3</div>
+          <h3>Acompanhe o resultado</h3>
+          <p>Divulgamos os resultados e mantemos as informações organizadas para mais transparência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="regulamento">
+    <div class="container">
+      <h2 class="section-title">Regulamento e transparência</h2>
+      <p class="section-sub">
+        Essa parte é muito importante para gerar credibilidade.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Regulamento</h3>
+          <p>
+            Inclua aqui as regras da campanha, condições de participação,
+            formas de pagamento e critérios do sorteio.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Divulgação de resultados</h3>
+          <p>
+            Mantenha uma área com campanhas encerradas e seus respectivos resultados
+            para mostrar histórico e transparência.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Identificação do responsável</h3>
+          <p>
+            Coloque nome, redes sociais, contato e demais dados necessários
+            para o visitante saber com quem está falando.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="resultados">
+    <div class="container">
+      <h2 class="section-title">Resultados</h2>
+      <p class="section-sub">
+        Mesmo que você ainda esteja começando, essa seção já mostra organização.
+      </p>
+
+      <div class="results-box">
+        <div class="results-list">
+          <div class="result-item">
+            <div>
+              <div class="result-title">Campanha atual</div>
+              <div class="result-meta">Em andamento — aguardando encerramento</div>
+            </div>
+            <div class="result-meta">Status: Ativa</div>
+          </div>
+
+          <div class="result-item">
+            <div>
+              <div class="result-title">Próximos resultados</div>
+              <div class="result-meta">Os resultados serão publicados aqui após a finalização da campanha.</div>
+            </div>
+            <div class="result-meta">Transparência</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contato">
+    <div class="container">
+      <h2 class="section-title">Contato</h2>
+      <p class="section-sub">
+        Deixe seus canais bem fáceis de encontrar.
+      </p>
+
+      <div class="contact">
+        <div class="card">
+          <h3>Fale com a gente</h3>
+          <p>WhatsApp: <a href="https://wa.me/5511986220490" target="_blank">(11) 98622-0490</a></p>
+          <p>Instagram: <a href="https://instagram.com/ohpernimano" target="_blank">@ohpernimano</a></p>
+        </div>
+
+        <div class="card">
+          <h3>Importante</h3>
+          <p>
+            Mantenha as informações sempre atualizadas e publique somente campanhas
+            válidas, com regras claras e apresentação transparente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Oh Perni Premiações</strong></p>
+        <p>Campanhas, regulamentos e resultados em um só lugar.</p>
+      </div>
+      <div>
+        <p>© 2026 Oh Perni Premiações. Todos os direitos reservados.</p>
+        <p>Contato: WhatsApp e Instagram oficiais.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/5511986220490" target="_blank">WhatsApp</a>
+</body>
+</html>
