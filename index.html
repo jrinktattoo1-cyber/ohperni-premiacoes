@@ -5,11 +5,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#050505">
+
 <title>Oh Perni Premiações | R$ 1.000 no Pix</title>
 
 <style>
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,31 +25,35 @@ body {
 }
 
 main {
+  width: 100%;
   max-width: 650px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .banner {
-  position: relative;
   width: 100%;
+  position: relative;
 }
 
 .arte {
-  display: block;
   width: 100%;
   height: auto;
+  display: block;
 }
 
+/* Área clicável sobre o botão verde */
 .botao {
   position: absolute;
-  left: 3%;
-  top: 68%;
-  width: 94%;
-  height: 9%;
-  background: transparent;
-  border: 0;
+  left: 2%;
+  top: 65%;
+  width: 96%;
+  height: 13%;
+  z-index: 10;
+  display: block;
   cursor: pointer;
-  z-index: 2;
+  border: 2px dashed rgba(255,255,255,.6);
+  border-radius: 18px;
+  background: rgba(0,255,0,.12);
 }
 
 .contatos {
@@ -63,8 +72,6 @@ main {
   padding: 14px;
   font-weight: bold;
 }
-
-/* Confirmação de maioridade */
 
 .maioridade {
   position: fixed;
@@ -150,8 +157,8 @@ main {
 
 <a
   class="botao"
-  href="#contatos"
-  aria-label="Informações sobre a campanha"
+  href="https://www.instagram.com/_juniorink/"
+  aria-label="Testar botão da campanha"
 ></a>
 
 </div>
@@ -186,25 +193,17 @@ WhatsApp
 
 <h2>OH PERNI PREMIAÇÕES</h2>
 
-<p>
-Antes de continuar, confirme sua idade.
-</p>
+<p>Antes de continuar, confirme sua idade.</p>
 
 <h3>Você tem 18 anos ou mais?</h3>
 
 <div class="acoes">
 
-<button
-  class="sim"
-  onclick="confirmarIdade()"
->
+<button class="sim" onclick="confirmarIdade()">
 SIM, TENHO 18+
 </button>
 
-<button
-  class="nao"
-  onclick="negarIdade()"
->
+<button class="nao" onclick="negarIdade()">
 NÃO
 </button>
 
@@ -215,7 +214,6 @@ Acesso permitido somente para maiores de 18 anos.
 </p>
 
 </div>
-
 </div>
 
 <script>
