@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta name="theme-color" content="#050505">
 
 <title>Oh Perni Premiações | R$ 1.000 no Pix</title>
@@ -20,7 +21,7 @@ html {
 body {
   margin: 0;
   background: #050505;
-  color: white;
+  color: #fff;
   font-family: Arial, sans-serif;
 }
 
@@ -30,31 +31,37 @@ main {
   margin: 0 auto;
 }
 
+/* IMAGEM ORIGINAL */
+
 .banner {
-  width: 100%;
   position: relative;
+  width: 100%;
 }
 
 .arte {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
 }
 
-/* Área clicável sobre o botão verde */
+/* BOTÃO INVISÍVEL SOBRE A ARTE */
+
 .botao {
   position: absolute;
-  left: 2%;
+  left: 3%;
   top: 65%;
-  width: 96%;
+  width: 94%;
   height: 13%;
-  z-index: 10;
   display: block;
+  z-index: 20;
   cursor: pointer;
-  border: 2px dashed rgba(255,255,255,.6);
-  border-radius: 18px;
-  background: rgba(0,255,0,.12);
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
+
+/* CONTATOS */
 
 .contatos {
   display: flex;
@@ -64,48 +71,48 @@ main {
 }
 
 .contatos a {
-  color: white;
-  text-decoration: none;
   background: #171717;
   border: 1px solid #444;
   border-radius: 12px;
   padding: 14px;
+  color: white;
   font-weight: bold;
+  text-decoration: none;
 }
+
+/* CONFIRMAÇÃO DE IDADE */
 
 .maioridade {
   position: fixed;
   inset: 0;
+  z-index: 9999;
   background: rgba(0,0,0,.96);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: 999;
 }
 
 .caixa {
+  width: 100%;
+  max-width: 390px;
   background: #171717;
   border: 2px solid #d5a539;
   border-radius: 20px;
-  max-width: 390px;
-  width: 100%;
   padding: 30px 22px;
   text-align: center;
 }
 
 .coroa {
   font-size: 48px;
-  margin-bottom: 12px;
 }
 
 .caixa h2 {
   color: #f3cc65;
-  margin: 0 0 15px;
 }
 
 .caixa p {
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .acoes {
@@ -116,10 +123,10 @@ main {
 
 .acoes button {
   flex: 1;
-  padding: 15px 10px;
+  padding: 15px 8px;
+  border: none;
   border-radius: 12px;
-  border: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -130,35 +137,35 @@ main {
 }
 
 .nao {
-  background: #3b3b3b;
+  background: #444;
   color: white;
 }
 
 .bloqueado {
   display: none;
-  margin-top: 20px;
   color: #ff8989;
   font-weight: bold;
 }
+
 </style>
 </head>
 
 <body>
 
-<main id="site">
+<main>
 
 <div class="banner">
 
 <img
   class="arte"
   src="02F3256A-1D98-42FD-817D-0D2841408C94.png"
-  alt="Oh Perni Premiações - R$ 1.000 no Pix"
+  alt="Oh Perni Premiações"
 >
 
 <a
   class="botao"
-  href="https://www.instagram.com/_juniorink/"
-  aria-label="Testar botão da campanha"
+  href="#contatos"
+  aria-label="Informações da campanha"
 ></a>
 
 </div>
@@ -174,7 +181,7 @@ Instagram
 </a>
 
 <a
-  href="https://wa.me/5511986220490?text=Ol%C3%A1%21%20%F0%9F%91%91%20Vim%20pelo%20site%20Oh%20Perni%20Premia%C3%A7%C3%B5es%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20a%C3%A7%C3%A3o%20de%20R%24%201.000%20no%20Pix%21%20%F0%9F%92%B0"
+  href="https://wa.me/5511986220490?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Oh%20Perni%20Premia%C3%A7%C3%B5es%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
   target="_blank"
   rel="noopener noreferrer"
 >
@@ -184,6 +191,8 @@ WhatsApp
 </div>
 
 </main>
+
+<!-- VERIFICAÇÃO DE IDADE -->
 
 <div class="maioridade" id="maioridade">
 
@@ -197,7 +206,7 @@ WhatsApp
 
 <h3>Você tem 18 anos ou mais?</h3>
 
-<div class="acoes">
+<div class="acoes" id="acoes">
 
 <button class="sim" onclick="confirmarIdade()">
 SIM, TENHO 18+
@@ -214,17 +223,36 @@ Acesso permitido somente para maiores de 18 anos.
 </p>
 
 </div>
+
 </div>
 
 <script>
+
+const aviso = document.getElementById("maioridade");
+
+try {
+  if (localStorage.getItem("ohperni_18") === "sim") {
+    aviso.style.display = "none";
+  }
+} catch (e) {
+  // Mantém a confirmação visível.
+}
+
 function confirmarIdade() {
-  document.getElementById("maioridade").style.display = "none";
+  try {
+    localStorage.setItem("ohperni_18", "sim");
+  } catch (e) {
+    // Permite continuar nesta visita.
+  }
+
+  aviso.style.display = "none";
 }
 
 function negarIdade() {
+  document.getElementById("acoes").style.display = "none";
   document.getElementById("bloqueado").style.display = "block";
-  document.querySelector(".acoes").style.display = "none";
 }
+
 </script>
 
 </body>
