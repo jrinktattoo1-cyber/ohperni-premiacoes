@@ -76,35 +76,69 @@ main{
 </style>
 </head>
 <body>
-<main>
-<img class="arte" src="02F3256A-1D98-42FD-817D-0D2841408C94.png" alt="Oh Perni Premiações - R$ 1.000 no Pix">
 
-<button class="botao" aria-label="Participar da campanha" onclick="participar()"></button>
+<main>
+
+<img class="arte"
+src="02F3256A-1D98-42FD-817D-0D2841408C94.png"
+alt="Oh Perni Premiações - R$ 1.000 no Pix">
+
+<button
+ class="botao"
+ aria-label="Participar da campanha"
+ onclick="participar()">
+</button>
 
 <div class="contatos">
-<a href="https://www.instagram.com/_juniorink/" target="_blank">Instagram</a>
-<a href="https://wa.me/5511986220490" target="_blank">WhatsApp</a>
+
+<a href="https://www.instagram.com/_juniorink/"
+target="_blank" rel="noopener noreferrer">
+Instagram
+</a>
+
+<a id="whatsapp"
+href="https://wa.me/5511986220490?text=Ol%C3%A1%21%20%F0%9F%91%91%20Vim%20pelo%20site%20Oh%20Perni%20Premia%C3%A7%C3%B5es%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20a%C3%A7%C3%A3o%20de%20R%24%201.000%20no%20Pix%21%20%F0%9F%92%B0"
+target="_blank"
+rel="noopener noreferrer">
+WhatsApp
+</a>
+
 </div>
+
 </main>
 
 <div class="aviso" id="aviso">
 <div class="caixa">
+
 <h2>R$ 1.000 no Pix</h2>
-<p>Nossa primeira campanha está sendo preparada. Em breve você poderá participar!</p>
-<button onclick="document.getElementById('aviso').style.display='none'">Fechar</button>
+
+<p>
+Nossa primeira campanha está sendo preparada.
+Em breve você poderá participar!
+</p>
+
+<button onclick="document.getElementById('aviso').style.display='none'">
+Fechar
+</button>
+
 </div>
 </div>
 
 <script>
+
 const LINK_RIFA = "";
 
 function participar(){
+
  if(LINK_RIFA){
    window.location.href = LINK_RIFA;
  }else{
    document.getElementById("aviso").style.display="flex";
  }
+
 }
+
 </script>
+
 </body>
 </html>
