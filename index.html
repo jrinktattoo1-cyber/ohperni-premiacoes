@@ -6,100 +6,171 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#050505">
 <title>Oh Perni Premiações | R$ 1.000 no Pix</title>
+
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:#050505;
-  color:white;
-  font-family:Arial,sans-serif;
+* {
+  box-sizing: border-box;
 }
-main{
-  max-width:650px;
-  margin:auto;
-  position:relative;
+
+body {
+  margin: 0;
+  background: #050505;
+  color: white;
+  font-family: Arial, sans-serif;
 }
-.arte{
-  width:100%;
-  display:block;
+
+main {
+  max-width: 650px;
+  margin: auto;
 }
-.botao{
-  position:absolute;
-  left:3%;
-  top:67%;
-  width:94%;
-  height:10%;
-  background:transparent;
-  border:0;
-  cursor:pointer;
+
+.banner {
+  position: relative;
+  width: 100%;
 }
-.contatos{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  padding:20px 12px 35px;
+
+.arte {
+  display: block;
+  width: 100%;
+  height: auto;
 }
-.contatos a{
-  color:white;
-  text-decoration:none;
-  background:#171717;
-  border:1px solid #444;
-  border-radius:12px;
-  padding:14px;
-  font-weight:bold;
+
+.botao {
+  position: absolute;
+  left: 3%;
+  top: 68%;
+  width: 94%;
+  height: 9%;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  z-index: 2;
 }
-.aviso{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#000c;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:10;
+
+.contatos {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 12px 35px;
 }
-.caixa{
-  background:#171717;
-  border:1px solid #d5a539;
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
-  max-width:380px;
+
+.contatos a {
+  color: white;
+  text-decoration: none;
+  background: #171717;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: bold;
 }
-.caixa button{
-  padding:12px 35px;
-  border:0;
-  border-radius:10px;
-  background:#e6c36b;
-  font-weight:bold;
+
+/* Confirmação de maioridade */
+
+.maioridade {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+.caixa {
+  background: #171717;
+  border: 2px solid #d5a539;
+  border-radius: 20px;
+  max-width: 390px;
+  width: 100%;
+  padding: 30px 22px;
+  text-align: center;
+}
+
+.coroa {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.caixa h2 {
+  color: #f3cc65;
+  margin: 0 0 15px;
+}
+
+.caixa p {
+  line-height: 1.6;
+}
+
+.acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.acoes button {
+  flex: 1;
+  padding: 15px 10px;
+  border-radius: 12px;
+  border: 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sim {
+  background: #149f48;
+  color: white;
+}
+
+.nao {
+  background: #3b3b3b;
+  color: white;
+}
+
+.bloqueado {
+  display: none;
+  margin-top: 20px;
+  color: #ff8989;
+  font-weight: bold;
 }
 </style>
 </head>
+
 <body>
 
-<main>
+<main id="site">
 
-<img class="arte"
-src="02F3256A-1D98-42FD-817D-0D2841408C94.png"
-alt="Oh Perni Premiações - R$ 1.000 no Pix">
+<div class="banner">
 
-<button
- class="botao"
- aria-label="Participar da campanha"
- onclick="participar()">
-</button>
+<img
+  class="arte"
+  src="02F3256A-1D98-42FD-817D-0D2841408C94.png"
+  alt="Oh Perni Premiações - R$ 1.000 no Pix"
+>
 
-<div class="contatos">
+<a
+  class="botao"
+  href="#contatos"
+  aria-label="Informações sobre a campanha"
+></a>
 
-<a href="https://www.instagram.com/_juniorink/"
-target="_blank" rel="noopener noreferrer">
+</div>
+
+<div class="contatos" id="contatos">
+
+<a
+  href="https://www.instagram.com/_juniorink/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
 Instagram
 </a>
 
-<a id="whatsapp"
-href="https://wa.me/5511986220490?text=Ol%C3%A1%21%20%F0%9F%91%91%20Vim%20pelo%20site%20Oh%20Perni%20Premia%C3%A7%C3%B5es%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20a%C3%A7%C3%A3o%20de%20R%24%201.000%20no%20Pix%21%20%F0%9F%92%B0"
-target="_blank"
-rel="noopener noreferrer">
+<a
+  href="https://wa.me/5511986220490?text=Ol%C3%A1%21%20%F0%9F%91%91%20Vim%20pelo%20site%20Oh%20Perni%20Premia%C3%A7%C3%B5es%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20a%C3%A7%C3%A3o%20de%20R%24%201.000%20no%20Pix%21%20%F0%9F%92%B0"
+  target="_blank"
+  rel="noopener noreferrer"
+>
 WhatsApp
 </a>
 
@@ -107,37 +178,55 @@ WhatsApp
 
 </main>
 
-<div class="aviso" id="aviso">
+<div class="maioridade" id="maioridade">
+
 <div class="caixa">
 
-<h2>R$ 1.000 no Pix</h2>
+<div class="coroa">👑</div>
+
+<h2>OH PERNI PREMIAÇÕES</h2>
 
 <p>
-Nossa primeira campanha está sendo preparada.
-Em breve você poderá participar!
+Antes de continuar, confirme sua idade.
 </p>
 
-<button onclick="document.getElementById('aviso').style.display='none'">
-Fechar
+<h3>Você tem 18 anos ou mais?</h3>
+
+<div class="acoes">
+
+<button
+  class="sim"
+  onclick="confirmarIdade()"
+>
+SIM, TENHO 18+
+</button>
+
+<button
+  class="nao"
+  onclick="negarIdade()"
+>
+NÃO
 </button>
 
 </div>
+
+<p class="bloqueado" id="bloqueado">
+Acesso permitido somente para maiores de 18 anos.
+</p>
+
+</div>
+
 </div>
 
 <script>
-
-const LINK_RIFA = "https://rd.app/s/oh-perni-premiacoes-r-1000-no-pix/5840715";
-
-function participar(){
-
- if(LINK_RIFA){
-   window.location.href = LINK_RIFA;
- }else{
-   document.getElementById("aviso").style.display="flex";
- }
-
+function confirmarIdade() {
+  document.getElementById("maioridade").style.display = "none";
 }
 
+function negarIdade() {
+  document.getElementById("bloqueado").style.display = "block";
+  document.querySelector(".acoes").style.display = "none";
+}
 </script>
 
 </body>
